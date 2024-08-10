@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" alt="" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="images/image-1.png" alt=""></span>
+                <span><img src="images/image-2.png" alt=""></span>
+                <span><img src="images/image-3.png" alt=""></span>
+            </div>
+            <div>
+                <span><img src="images/image-4.png" alt=""></span>
+                <span><img src="images/image-5.png" alt=""></span>
+                <span><img src="images/image-6.png" alt=""></span>
+            </div>
+        </div>
+        <img src="images/next.png" alt="" id="nextBtn">
+    </div>
+    
+    <script>
+        let scrollContainer = document.querySelector('.gallery');
+        let backBtn = document.getElementById('backBtn');
+        let nextBtn = document.getElementById('nextBtn');
+        
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scrollContainer.style.scrollBehavior = 'auto';
+            scrollContainer.scrollLeft +=evt.deltaY; 
+            console.log(evt.deltaY)
+        })
+        
+        nextBtn.addEventListener('click', ()=>{
+            scrollContainer.style.scrollBehavior = 'smooth';
+            scrollContainer.scrollLeft +=900;
+        })
+        
+        backBtn.addEventListener('click', ()=>{
+            scrollContainer.style.scrollBehavior = 'smooth';
+            scrollContainer.scrollLeft -=900;
+        })
+    </script>
+</body>
+</html>
